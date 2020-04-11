@@ -14,14 +14,15 @@
     "font-awesome": "^4.7.0",
     "http-errors": "~1.6.3",
     "jquery": "^3.4.1",
+    "mongoose": "^5.9.7",
     "morgan": "~1.9.1",
     "popper.js": "^1.16.1"
   },
   "engines": {
-    "node":"^10.15.0",
-    "npm" :"^6.0.0"
+    "node": "^10.15.0",
+    "npm": "^6.0.0"
   },
-  "description": "express demo",
+  "description": "Mongo and Mongoose Demo",
   "main": "server.js",
   "author": "Hemrajsinh",
   "license": "ISC",
@@ -29,7 +30,16 @@
     "@types/body-parser": "^1.19.0",
     "@types/cookie-parser": "^1.4.2",
     "@types/express": "^4.17.4",
+    "@types/mongoose": "^5.7.10",
     "@types/morgan": "^1.9.0",
     "@types/node": "^13.11.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hemrajsinh793/comp308mongo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Hemrajsinh793/comp308mongo/issues"
+  },
+  "homepage": "https://github.com/Hemrajsinh793/comp308mongo#readme"
 }
