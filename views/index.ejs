@@ -1,92 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= title %></title>
-  <!--Css section-->
-  <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="Contents/app.css">
-</head>
-<body>
-  
-    <!--navbar code-->
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <a class="navbar-brand" href="/"><img src="Assets/images/logo.png" alt="logo" srcset="" width="60" height="60"></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-              <%if(title=="Home"){%>
-              <li class="nav-item active">
-                <%}else{%>
-                  <li class="nav-item"></li>
-                  <%}%>   
-                <a class="nav-link" href="/"><i class="fa fa-2x fa-home"></i>Home <span class="sr-only">(current)</span></a>
-              </li>  
-
-              <%if(title=="About"){%>
-                <li class="nav-item active">
-                  <%}else{%>
-                    <li class="nav-item"></li>
-                  <%}%>          
-              
-                  <a class="nav-link" href="/about"><i class="fa fa-2x fa-info"></i>About</a>
-                </li>
-
-                <%if(title=="Products"){%>
-                <li class="nav-item active">
-                  <%}else{%>
-                    <li class="nav-item"></li>
-                  <%}%>
-                  <a class="nav-link" href="/products"><i class="fa fa-2x fa-briefcase"></i>Products</a>
-                </li>
-
-                <%if(title=="Services"){%>
-                <li class="nav-item active">
-                  <%}else{%>
-                    <li class="nav-item"></li>
-                  <%}%>
-                  <a class="nav-link" href="/services"><i class="fa fa-2x fa-bullseye"></i>Services</a>
-                </li>
-
-                <%if(title=="Contact"){%>
-                <li class="nav-item active">
-                  <%}else{%>
-                    <li class="nav-item"></li>
-                  <%}%>
-                  <a class="nav-link" href="/contacts"><i class="fa fa-2x fa-phone"></i>Contact</a>
-                </li>
-            </ul>
-          </div>
-        </nav>
-      </header>
-  
+      <% include ./partials/header.ejs %>
       <!--Main Content-->
       <main class="container">
           <div class="jumbotron">
               <h1 class="display-4">Hello, <%=title%></h1>
-              <p class="lead">This is Home paeg created by Hemrajsinh Varachhia</p>
+              <p class="lead">This is Home page created by Hemrajsinh Varachhia</p>
               <hr class="my-4">
               <p>With great support of Sohel Gangat and Faizan Mukhi.</p>
-              <img src="Assets/images/we3.jpeg" alt="My Picture" srcset="" width="600" height="600"></br>
-              <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+              <img src="Assets/images/we3.jpeg" alt="My Picture" srcset="" width="300" height="300">
+              <% if(title=="Contact"){ %>
+              <a class="btn btn-primary" href="/contact-list" role="button">Contact List</a>
+              <% } %>
             </div>
       </main>
-  
-      <footer>
-          <nav class="navbar fixed-bottom navbar-light bg-light">
-              <h4>&copy; Hemrajsinh Varchhia </h4>
-            </nav>
-      </footer>
-  
-  <!--Script section-->
-  <script src="jquery/dist/jquery.min.js"></script>
-  <script src="bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="Scripts/app.js"></script>
-</body>
-</html>
+ 
+ <% include ./partials/footer.ejs %>

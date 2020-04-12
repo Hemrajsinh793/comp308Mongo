@@ -14,11 +14,11 @@ router.get('/',(req, res, next)=>{
         }
         else
         {
-            console.log(contactList);
-        /*res.render('contacts/index',{
+          //  console.log(contactList);
+        res.render('contacts/index',{
             title:'Contact List',
             contactList:contactList
-        }); */
+        }); 
         }
     });
 });
