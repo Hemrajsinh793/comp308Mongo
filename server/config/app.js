@@ -1,8 +1,16 @@
+//modules for node and express
 let createError = require('http-errors');
 let express = require('express');
 let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
+
+//modules for authentication
+let session=require('express-session');
+let passport=require('passport');
+let passportLocal=require('passport-local');
+let localStrategy=passportLocal.Strategy;
+let flash=require('connect-flash');
 
 //database setup
 let mongoose=require('mongoose');
@@ -16,6 +24,28 @@ mongoDB.on('error', console.error.bind(console,'connection error...'));
 mongoDB.once('open', ()=>{
   console.log('Mongo connected....');
 });
+
+//setup expression-session
+app.use(session({
+  secret:'SomeSecret',
+  saveUninitialized:false,
+  resave:false
+}));
+
+//intialize flash
+app.use(flash());
+
+//intialize passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+//passport user configuration
+
+//create a user model
+
+//implement a user authentication strategy
+
+//serialize and deserialize the user info
 
 let indexRouter = require('../routes/index');
 let contcatRouter=require('../routes/contact');
