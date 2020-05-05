@@ -5,8 +5,7 @@ let mongoose=require('mongoose');
 //create a reference to db schema
 let contactModel=require("../models/contact");
 
-/*GET contact list page- READ operation */
-router.get('/',(req, res, next)=>{
+module.exports.displayContactList = (req, res, next)=>{
     contactModel.find((err, contactList)=>{
         if(err)
         {
@@ -21,17 +20,15 @@ router.get('/',(req, res, next)=>{
         }); 
         }
     });
-});
+}
 
-//GET route for Add page adn will display add page
-router.get('/add',(req, res, next)=>{
+module.exports.displayAddPage=(req, res, next)=>{
     res.render('contacts/add',{
         title:'Add New Contact'
     });
-});
+}
 
-//POST routes for Add Contact
-router.post('/add',(req, res, next)=>{
+module.exports.processAddPage=(req, res, next)=>{
 
     let newContact=contactModel({
         "firstName" : req.body.firstName,
@@ -51,10 +48,9 @@ router.post('/add',(req, res, next)=>{
             res.redirect('/contact-list');
         }
     });
-});
+}
 
-//Get request for edit contact
-router.get('/edit/:id', (req, res, next)=>{
+module.exports.displayEditPage= (req, res, next)=>{
     let id=req.params.id;
 
     contactModel.findById(id, (err, contactObject)=>{
@@ -73,9 +69,8 @@ router.get('/edit/:id', (req, res, next)=>{
         }
     });
 
-});
-//post request for edit method
-router.post('/edit/:id',(req, res, next)=>{
+}
+module.exports.processEditPage=(req, res, next)=>{
     let id=req.params.id;
 
     let updatedContact=contactModel({
@@ -96,9 +91,8 @@ router.post('/edit/:id',(req, res, next)=>{
             res.redirect('/contact-list');
         }
     })
-});
-//Get method for delete request
-router.get('/delete/:id',(req, res, next)=>{
+}
+module.exports.performDelete=(req, res, next)=>{
     let id=req.params.id;
     contactModel.remove({_id:id}, (err)=>{
         if(err)
@@ -111,6 +105,4 @@ router.get('/delete/:id',(req, res, next)=>{
             res.redirect('/contact-list')
         }
     })
-})
-
-module.exports = router;
+}

@@ -6,7 +6,7 @@ let logger = require('morgan');
 
 //database setup
 let mongoose=require('mongoose');
-let DB=require('./config/db');
+let DB=require('./db');
 
 //point monngoose to DB URI
 mongoose.connect(DB.URI);
@@ -17,21 +17,21 @@ mongoDB.once('open', ()=>{
   console.log('Mongo connected....');
 });
 
-let indexRouter = require('./routes/index');
-let contcatRouter=require('./routes/contact');
+let indexRouter = require('../routes/index');
+let contcatRouter=require('../routes/contact');
 
 let app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, '../views'));
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'node_modules')));
+app.use(express.static(path.join(__dirname, '../../public')));
+app.use(express.static(path.join(__dirname, '../../node_modules')));
 
 
 app.use('/', indexRouter);
