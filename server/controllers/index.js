@@ -20,3 +20,20 @@ module.exports.displayHomePage= (req,res,next)=> {
   module.exports.diplayContactPage=(req,res,next)=> {
     res.render('index', { title: 'Contact' });
   }
+
+  module.exports.displayLoginPage=(req,res,next)=>{
+
+  }
+
+  module.exports.processLoginPage=(req,res,next)=>{
+
+  }
+  module.exports.displayRegisterPage=(req,res,next)=>{
+
+  }
+  module.exports.processRegisterPage=(req,res,next)=>{
+
+  }
+  module.exports.performLogout=(req,res,next)=>{
+
+  }
