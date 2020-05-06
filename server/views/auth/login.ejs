@@ -10,17 +10,17 @@
         <div class="col-md-offset-4 col-md-4">
             <h1>Please Login</h1>
             <form method="POST">
-                <fieldset class="form-group">
+                <fieldset class="form-group" autocomplete="off">
                     <label for="username">Username:</label>
                     <input type="text" class="form-control"
                     name="username" placeholder="Enter Username" 
-                    id='login' required autofocus>
+                    id='login' autocomplete="off" required autofocus>
                 </fieldset>
                 <fieldset class="form-group">
                     <label for="password">Password:</label>
                     <input type="password" class="form-control"
                     name="password" placeholder="Enter Password"
-                    id='password' required>
+                    id='password' autocomplete="off" required>
                     or 
                     <a href="/register">Register Here</a>
                 </fieldset>
