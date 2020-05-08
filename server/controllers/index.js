@@ -54,13 +54,35 @@ module.exports.displayLoginPage = (req, res, next) => {
     return res.redirect("/");
   }
 };
-
+/*
 module.exports.processLoginPage = passport.authenticate("local", {
   successRedirect: "/contact-list",
   failureRedirect: "/login",
   failureFlash: "loginMessage",
   failureMessage: "Authentication Error"
-});
+});*/
+module.exports.processLoginPage=(req,res,next)=>{
+  passport.authenticate('local',
+  (err,user,info)=>{
+    //check sever error
+    if(err){
+      return next(err);
+    }
+    if(!user)
+    {
+      req.flash('loginMessage', 'Auhentical Error');
+      res.redirect('/login');
+    }
+    req.logIn(user,(err)=>
+    {
+      if(err)
+      {
+        return next(err);
+      }
+      return res.redirect('/contact-list');
+    });
+  })(req,res,next);
+}
 
 module.exports.displayRegisterPage = (req, res, next) => {
   if (!req.user) {

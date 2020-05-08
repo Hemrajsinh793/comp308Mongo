@@ -16,7 +16,9 @@ module.exports.displayContactList = (req, res, next)=>{
           //  console.log(contactList);
         res.render('contacts/index',{
             title:'Contact List',
-            contactList:contactList
+            contactList:contactList,
+            displayName: req.user ? req.user.displayName : ""
+
         }); 
         }
     });
@@ -64,7 +66,9 @@ module.exports.displayEditPage= (req, res, next)=>{
             // show edit view
             res.render('contacts/edit',{
                 title:'Edit Contact',
-                contact:contactObject
+                contact:contactObject,
+                displayName: req.user ? req.user.displayName : ""
+
             });
         }
     });
