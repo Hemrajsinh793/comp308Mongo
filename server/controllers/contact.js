@@ -26,7 +26,9 @@ module.exports.displayContactList = (req, res, next)=>{
 
 module.exports.displayAddPage=(req, res, next)=>{
     res.render('contacts/add',{
-        title:'Add New Contact'
+        title:'Add New Contact',
+        displayName: req.user ? req.user.displayName : ""
+
     });
 }
 
